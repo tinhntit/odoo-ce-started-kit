@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     sh 'cd /home/tinker/Odoo17/addons'
-                    sh 'git pull'
+                    sh 'git pull origin 17.0'
                 }
             }
         }
