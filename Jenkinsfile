@@ -1,10 +1,17 @@
 pipeline {
-    agent any
+    agent {
+        label 'main-server'
+    }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                script {
+                    dir('/home/tinker/Odoo17/addons') {
+                        // Step 3: Pull latest changes
+                        sh 'git pull'
+                    }
+                }
             }
         }
         stage('Test') {
@@ -15,6 +22,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'sudo service runodoo restart'
+                echo 'Deployed!'
             }
         }
     }
