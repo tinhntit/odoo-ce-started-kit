@@ -7,10 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dir('/home/tinker/Odoo17/addons') {
-                        // Step 3: Pull latest changes
-                        sh 'git pull'
-                    }
+                    sh 'cd /home/tinker/Odoo17/addons'
+                    sh 'git pull'
                 }
             }
         }
