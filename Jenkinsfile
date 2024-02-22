@@ -20,6 +20,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'cd /home/tinker/Odoo17/addons'
+                sh 'git pull origin 17.0'
                 sh 'sudo service runodoo restart'
                 echo 'Deployed!'
             }
