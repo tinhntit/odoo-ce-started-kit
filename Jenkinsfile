@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'main-server'
+        label 'Built-In Node'
     }
 
     stages {
